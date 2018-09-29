@@ -1,6 +1,6 @@
 # Homework 1
 
-
+## Team members： 蔡一凡 李东起 姜凡叙 应邦豪
 
 ### 1. Introduction
 
@@ -53,9 +53,45 @@ Unlike Borg and some other scheduling systems, Apollo uses a combination of dist
 
 
 
+### 3. Google Borg
+
+#### 3.1. Characteristics
+
+As is described in [2], Borg has the following characteristics, 
+
+ - It achieves high utilization by combining admission control, efficient task-packing, over-commitment, and machine sharing with process-level performance isolation.
+ - It supports high-availability applications with runtime features that minimize fault-recovery time, and scheduling policies that reduce the probability of correlated failures.
+-  Borg simplifies life for its users by offering a declarative job specification language, name service integration, real-time job monitoring, and tools to analyze and simulate system behavior.
 
 
 
+#### 3.2. Pros of Borg
+
+- Allocs are useful.
+- Cluster management is more than task management.
+- Introspection is vital.
+- The master is the kernel of a distributed system.
+
+
+
+#### 3.3. Cons of Borg
+
+
+
+- Jobs are restrictive as the only grouping mechanism for tasks.
+- One IP address per machine complicates things.
+- Optimizing for power users at the expense of casual ones.
+
+
+
+#### 3.4. Our Comments
+
+Borg provides three main benefits: it 
+- hides the details of resource management and failure handling so its users can focus on application development instead; 
+- operates with very high reliability and availability, and supports applications that do the same; 
+- lets us run workloads across tens of thousands of machines effectively. 
+
+Borg is not the first system to address these issues, but it’s one of the few operating at this scale, with this degree of resiliency and completeness.
 
 
 
