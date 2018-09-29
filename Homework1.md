@@ -94,6 +94,48 @@ Borg provides three main benefits: it
 Borg is not the first system to address these issues, but it’s one of the few operating at this scale, with this degree of resiliency and completeness.
 
 
+### 4. Alibaba Sigma
+
+#### 4.1. Characteristics
+
+*Sigma* is a container dispatching system within the scope of Alibaba Group. It successfully supports the extremely large number of transaction during the purchases at China's Double Eleven Day. 
+
+As an successful underlying infrastructure for Alibaba's operation and maintenance systems, Sigma is famously known to be:
+
+- providing effective online cluster management and online resource scheduling
+- utilizing advantages of Container concepts, so that resources are optimally isolated and safe, reducing costs of operation and maintenance 
+- suitably and preferably placed in mixed architectures where online services and offline processing run in parallel, significantly improving CPU resource utilization with no increase in response time
+- after more than 2 years of trial demonstration, structural adjustment and  optimization, already gone into mass production
+- strongly compatible, hoping to combine the power of ecology for joint construction and development
+
+#### 4.2.  Pros of Sigma
+
+- *Sigma* has three-layers with clear division of labor: *Alikenel*, *SigmaSlave* and *SigmaMaster*. 
+    * *Alikenel* is deployed on Physical machine to improve kernel algorithms in task scheduling. 
+    * *SigmaSlave* is responsible for CPU resources allocation in container, so it tends to quickly make trade-offs between new-coming delay-sensitive and insensitive tasks. 
+    * *SigmaMaster* is the dominant pillar, optimizing resource scheduling allocation.
+
+   These layers gives finer controll on task priority. It can also generate different strategies on different stages. Don't worry about whether these layers coordinates badly. Kernel resource isolation techniques promises that final consistency of the system is very satisfactory.
+
+- *Sigma* is supportive in mixed architectures. As imagined, machines that process online requests usually have low CPU utilization (because of the disorder of requests and the implicit but ultimate needs to keep their orders synchronized). While *Sigma* is compatible with Fuxi, an offline resource scheduling system, making it possible to deploy different tasks to the same batch of machines to ensure that utilization of physical machine resources is saturated.
+
+- *Sigma* benefits from *PouchContainer*'s containerization that gives great isolation, compatibility and safety. To today, *PouchContainer* already makes online business reach 100% containerization, and computing tasks also begin to containerize.
+
+- *Sigma* passed through the tests specially designed for it. Alibaba made a schedule simulator named *Cetebro* for developement of *Sigma*, which produces highly customized 1:1 environment data.
+
+
+#### 4.3. Cons of Sigma
+
+
+
+- Although passed millions of tests, *Sigma* still needs to be observed in real mass production environment.
+
+- All the tests now are static. Therefore, scientists still need to implement the idealized orthogonal dynamic simulation tools to do some trials for complementation, and promote the development of scheduling algorithms.
+
+
+#### 4.4. Our Comments
+
+*Sigma* is in 'Chinese style', just like Chinese ticketing systems, it is borned to cope with suprising amount of transaction that is only possible to be realistic in China. Fortunately, *Sigma* is proved to be successful and open source for scientists de go deeper into related knowledge.
 
 ### Reference
 
@@ -102,3 +144,6 @@ Borg is not the first system to address these issues, but it’s one of the few 
 [2] Verma, A., Pedrosa, L., Korupolu, M., Oppenheimer, D., Tune, E. and Wilkes, J., 2015, April. Large-scale cluster management at Google with Borg. In *Proceedings of the Tenth European Conference on Computer Systems* (p. 18). ACM.
 
 [3] Delgado, P., Dinu, F., Kermarrec, A.M. and Zwaenepoel, W., 2015. Hawk: Hybrid datacenter scheduling. In *Proceedings of the 2015 USENIX Annual Technical Conference* (No. CONF). USENIX Association.
+
+[4] 阿里系统软件技术, 2018, June. 阿里巴巴 Sigma 调度和集群管理系统架构详解. In
+*51CTO Blog 2.0*.
