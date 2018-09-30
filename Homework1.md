@@ -137,6 +137,40 @@ As an successful underlying infrastructure for Alibaba's operation and maintenan
 
 *Sigma* is in 'Chinese style', just like Chinese ticketing systems, it is borned to cope with suprising amount of transaction that is only possible to be realistic in China. Fortunately, *Sigma* is proved to be successful and open source for scientists de go deeper into related knowledge.
 
+### 5. Google Omega
+
+#### 5.1 Characteristics
+
+As is described in [5], Omega has the following characteristics, 
+
+- Presents a lightweight taxonomy of the option space for cluster scheduler development.
+
+- Builds a parallel scheduler architecture around shared state. Each scheduler can access to the entire cluster, and is allowed to compete in a free-for-all manner.
+
+- Uses lock-free optimistic concurrency control to mediate clashes when scheduler updates the cluster state.
+
+
+#### 5.2 Pros of Omega
+
+- Omega shared-state architecture can deliver performance competitive with or superior to other architectures, and that interference in real-world settings is low.
+- Omega has the ability to access the entire cluster state in a scheduler.
+- Omega greatly increases the performance of the scheduler and has better utilization.
+- The utilization ratio of hardware is high, which make full use of the resources.
+
+
+
+#### 5.3 Cons of Omega
+
+- For it doesn't exist central resource allocator in Omega, it's hard to achieve an fair scheduling. One scheduler may get the resources it needs more quickly, and may be more likely to race to control resources that are supposed to be distributed to others.
+- As a result of the Multi-Version Concurrency Control, there may be more conflicts during Omega runs. Solving these conflicts requires extra works. The more conflicts appear, the more quickly the performance decreases.
+- Omega has great requirements for configuration for tolerance.
+
+
+
+#### 5.4 Our Comments
+
+What Google requires is a scheduler architecture that can accommodate both types of jobs, flexibly support job-specific policies, and also scale to an ever-growing amount of scheduling work. Therefore, Google brings up Omega to replace Mesos. As is said in the paper, Omega balances its pros and cons quite well, and it performs well during these years.
+
 ### Reference
 
 [1] Boutin, E., Ekanayake, J., Lin, W., Shi, B., Zhou, J., Qian, Z., Wu, M. and Zhou, L., 2014, October. Apollo: Scalable and Coordinated Scheduling for Cloud-Scale Computing. In *OSDI*(Vol. 14, pp. 285-300).
@@ -147,3 +181,5 @@ As an successful underlying infrastructure for Alibaba's operation and maintenan
 
 [4] 阿里系统软件技术, 2018, June. 阿里巴巴 Sigma 调度和集群管理系统架构详解. In
 *51CTO Blog 2.0*.
+
+[5] Schwarzkopf, M., Konwinski, A., Abd-El-Malek, M., & Wilkes, J. (2013).*Omega: flexible, scalable schedulers for large compute clusters*. ACM.
