@@ -1,19 +1,15 @@
 # Homework 1
 
-## Team members： 蔡一凡 李东起 姜凡叙 应邦豪
-
-### 1. Introduction
+## 1. Introduction
 
 The production clusters that we use for data-parallel computations are growing in size, each with over 20,000 servers. A growing community of thousands of users from many different organizations
 submit jobs to the clusters every day, resulting in a peak rate of tens of thousands of scheduling requests per second. [1]
 
 Each job consists of a number of tasks with cross-task dependencies. Here, we define that the task is a basic unit of computation that is scheduled to execute on a server.
 
+## 2. Microsoft Apollo
 
-
-### 2. Microsoft Apollo
-
-#### 2.1. Characteristics
+### 2.1. Characteristics
 
 As is described in [1], Apollo has the following characteristics, 
 
@@ -24,9 +20,7 @@ As is described in [1], Apollo has the following characteristics,
 - Introduces opportunistic scheduling.
 - Supports staged rollout to production clusters and validation at scale.
 
-
-
-#### 2.2. Pros of Apollo
+### 2.2. Pros of Apollo
 
 - It scales well without sacrificing scheduling quality.
 - All schedulers are able to access the global status, therefore provide more accurate results.
@@ -34,9 +28,7 @@ As is described in [1], Apollo has the following characteristics,
 - Is made robust through a series of correction and prediction mechanisms that dynamically adjust and rectify suboptimal decisions at runtime.
 - Opportunistic scheduling in use to achieve high utilization while maintaining low job 
 
-
-
-#### 2.3. Cons of Apollo
+### 2.3. Cons of Apollo
 
 According to the description of [1], the following situations might happen, 
 
@@ -45,17 +37,13 @@ According to the description of [1], the following situations might happen,
 - To handle a higher task arriving rate, Apollo's distributed and coordinated system might not be able to handle high dimensional resources as centralized systems do. [2]
 - Apollo does not differentiate between long and short jobs and uses the same mechanisms to schedule both types of jobs. [3]
 
-
-
-#### 2.4. Our Comments
+### 2.4. Our Comments
 
 Unlike Borg and some other scheduling systems, Apollo uses a combination of distributed and coordinated system to balance the latency and utilization, which is an innovation. It also uses opportunistic execution mechanism and self correction and prediction to better schedule the tasks in runtime. However, the distributed structure does have its drawbacks. It is not so good as dealing with high dimensional resources, and the communications between nodes can cost some time. Moreover, the jobs are neither estimated nor scheduled at arriving time, the correction of which might be a cause of waste of resource.
 
+## 3. Google Borg
 
-
-### 3. Google Borg
-
-#### 3.1. Characteristics
+### 3.1. Characteristics
 
 As is described in [2], Borg has the following characteristics, 
 
@@ -63,28 +51,20 @@ As is described in [2], Borg has the following characteristics,
  - It supports high-availability applications with runtime features that minimize fault-recovery time, and scheduling policies that reduce the probability of correlated failures.
 -  Borg simplifies life for its users by offering a declarative job specification language, name service integration, real-time job monitoring, and tools to analyze and simulate system behavior.
 
-
-
-#### 3.2. Pros of Borg
+### 3.2. Pros of Borg
 
 - Allocs are useful.
 - Cluster management is more than task management.
 - Introspection is vital.
 - The master is the kernel of a distributed system.
 
-
-
-#### 3.3. Cons of Borg
-
-
+### 3.3. Cons of Borg
 
 - Jobs are restrictive as the only grouping mechanism for tasks.
 - One IP address per machine complicates things.
 - Optimizing for power users at the expense of casual ones.
 
-
-
-#### 3.4. Our Comments
+### 3.4. Our Comments
 
 Borg provides three main benefits: it 
 - hides the details of resource management and failure handling so its users can focus on application development instead; 
@@ -93,10 +73,9 @@ Borg provides three main benefits: it
 
 Borg is not the first system to address these issues, but it’s one of the few operating at this scale, with this degree of resiliency and completeness.
 
+## 4. Alibaba Sigma
 
-### 4. Alibaba Sigma
-
-#### 4.1. Characteristics
+### 4.1. Characteristics
 
 *Sigma* is a container dispatching system within the scope of Alibaba Group. It successfully supports the extremely large number of transaction during the purchases at China's Double Eleven Day. 
 
@@ -108,7 +87,7 @@ As an successful underlying infrastructure for Alibaba's operation and maintenan
 - after more than 2 years of trial demonstration, structural adjustment and  optimization, already gone into mass production
 - strongly compatible, hoping to combine the power of ecology for joint construction and development
 
-#### 4.2.  Pros of Sigma
+### 4.2.  Pros of Sigma
 
 - *Sigma* has three-layers with clear division of labor: *Alikenel*, *SigmaSlave* and *SigmaMaster*. 
     * *Alikenel* is deployed on Physical machine to improve kernel algorithms in task scheduling. 
@@ -123,23 +102,19 @@ As an successful underlying infrastructure for Alibaba's operation and maintenan
 
 - *Sigma* passed through the tests specially designed for it. Alibaba made a schedule simulator named *Cetebro* for developement of *Sigma*, which produces highly customized 1:1 environment data.
 
-
-#### 4.3. Cons of Sigma
-
-
+### 4.3. Cons of Sigma
 
 - Although passed millions of tests, *Sigma* still needs to be observed in real mass production environment.
 
 - All the tests now are static. Therefore, scientists still need to implement the idealized orthogonal dynamic simulation tools to do some trials for complementation, and promote the development of scheduling algorithms.
 
-
-#### 4.4. Our Comments
+### 4.4. Our Comments
 
 *Sigma* is in 'Chinese style', just like Chinese ticketing systems, it is borned to cope with suprising amount of transaction that is only possible to be realistic in China. Fortunately, *Sigma* is proved to be successful and open source for scientists de go deeper into related knowledge.
 
-### 5. Google Omega
+## 5. Google Omega
 
-#### 5.1 Characteristics
+### 5.1 Characteristics
 
 As is described in [5], Omega has the following characteristics, 
 
@@ -149,29 +124,24 @@ As is described in [5], Omega has the following characteristics,
 
 - Uses lock-free optimistic concurrency control to mediate clashes when scheduler updates the cluster state.
 
-
-#### 5.2 Pros of Omega
+### 5.2 Pros of Omega
 
 - Omega shared-state architecture can deliver performance competitive with or superior to other architectures, and that interference in real-world settings is low.
 - Omega has the ability to access the entire cluster state in a scheduler.
 - Omega greatly increases the performance of the scheduler and has better utilization.
 - The utilization ratio of hardware is high, which make full use of the resources.
 
-
-
-#### 5.3 Cons of Omega
+### 5.3 Cons of Omega
 
 - For it doesn't exist central resource allocator in Omega, it's hard to achieve an fair scheduling. One scheduler may get the resources it needs more quickly, and may be more likely to race to control resources that are supposed to be distributed to others.
 - As a result of the Multi-Version Concurrency Control, there may be more conflicts during Omega runs. Solving these conflicts requires extra works. The more conflicts appear, the more quickly the performance decreases.
 - Omega has great requirements for configuration for tolerance.
 
-
-
-#### 5.4 Our Comments
+### 5.4 Our Comments
 
 What Google requires is a scheduler architecture that can accommodate both types of jobs, flexibly support job-specific policies, and also scale to an ever-growing amount of scheduling work. Therefore, Google brings up Omega to replace Mesos. As is said in the paper, Omega balances its pros and cons quite well, and it performs well during these years.
 
-### Reference
+## Reference
 
 [1] Boutin, E., Ekanayake, J., Lin, W., Shi, B., Zhou, J., Qian, Z., Wu, M. and Zhou, L., 2014, October. Apollo: Scalable and Coordinated Scheduling for Cloud-Scale Computing. In *OSDI*(Vol. 14, pp. 285-300).
 
