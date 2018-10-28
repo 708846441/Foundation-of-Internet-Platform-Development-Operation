@@ -157,6 +157,104 @@ The TPU is on average about 15X - 30X faster than its contemporary GPU or CPU, w
 
 Google has already used TPU in AlphaGo, which beat Lee Sedol in 2016 and Ke Jie in 2017. Google has stated that they were also used in the AlphaZero system which produced Chess, Shogi and Go playing programs from the game rules alone and went on to beat the leading programs in those games. 
 
+## 4. Memory
+Computer memory is an electronic device made of semiconductor technology for storing data. The data of the electronic circuit is stored in a binary manner, and each memory cell of the memory is referred to as a memory element.
+
+ 
+
+### 4.1. Memory types
+There are mainly two types.
+
+The first is volatile memory, which is computer memory that requires power to maintain the stored information. 
+
+On the contrary, Non-volatile memory is computer memory that can retain the stored information even when not powered.
+<table>
+ <thead>
+ <tr>
+<td></td> <th>Type</th> <th>Name</th>
+ </tr> 
+ </thead>
+<tbody>
+ <tr>
+ <th> RAM	</th>
+ <td> Volatile</td>
+ <td> Random access memory</td>
+ </tr>
+   <tr>
+ <th> DRAM	</th>
+ <td> Volatile</td>
+ <td> Dynamic random access memory</td>
+ </tr>
+     <tr>
+ <th> SRAM	</th>
+ <td>Volatile</td>
+ <td> Static random access memory</td>
+ </tr>
+     <tr>
+ <th> ROM	</th>
+ <td> Non-volatile</td>
+ <td> Read-only memory</td>
+ </tr>
+ <tr>
+ <th> PROM	</th>
+ <td> Non-volatile</td>
+ <td> Programmable read-only memory</td>
+ </tr>
+     <tr>
+ <th> EPROM	</th>
+ <td> Non-volatile</td>
+ <td> Erasable programmable read only memory</td>
+ </tr>
+      <tr>
+ <th> EEPROM 	</th>
+ <td> Non-volatile</td>
+ <td> Electrically erasable programmable read only memory</td>
+ </tr>
+       <tr>
+ <th> Flash	</th>
+ <td> Non-volatile</td>
+ <td> Flash Memory</td>
+ </tr>
+ </tbody>
+ </table>
+
+### 4.1.1.Volatile Memory
+As shown above, RAM comes into two varieties - static and dynamic.
+<table>
+ <thead>
+ <tr>
+<td></td> <th>Speed</th> <th>Storage Method</th><th>Application </th>
+ </tr> 
+ </thead>
+<tbody>
+      <tr>
+ <th> SRAM	</th>
+ <td>faster</td>
+  <td>store bits in bistable memory cells</td>
+ <td> cache memories on/off CPU chip</td>
+ </tr>
+   <tr>
+ <th> DRAM	</th>
+ <td> slower</td>
+ <td> store bits as charge on capacitors</td>
+ <td> main memory, frame buffer, sensors</td>
+ </tr>
+
+ </tbody>
+ </table>
+
+Static means that:
+- not sensitive to disturbance. An SRAM memory cell has only two stable configurations, or states. It cannot remain balanced in metastable state, because the smallest disturbance will make it move into stable states.
+- persistent as long as power is applied. An SRAM memory cell will retain its value indefinitely as long as it is kept powered
+
+Dynamic means that:
+- very sensitive to any disturbance; once disturbed, never recover again
+- not persistent, various sources of leakage current cause a DRAM cell to lose its charge within 10 to 100 milliseconds
+
+There are several memory modules for RAM.
+
+### 4.1.2. Non-volatile Memory
+
 ## Reference
 
 [1] S. Weil, S. Brandt, E. Miller, D. Long, C. Maltzahn, "Ceph: A Scalable High-Performance Distributed File System", Proc. of the 7th Symposium on Operating Systems Design and Implementation, November 2006.
