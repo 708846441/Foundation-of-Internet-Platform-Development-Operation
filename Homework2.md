@@ -88,6 +88,7 @@ UDP is suitable for applications that need fast, efficient transmission, such as
  
 #### 2.3. Domain Name System (DNS)
 The Domain Name System (DNS) is a hierarchical decentralized naming system for computers, services, or other resources connected to the Internet or a private network. It is used to translate human-friendly domain names into IP addresses, which are machine-friendly.
+
   ![DNS](https://upload.wikimedia.org/wikipedia/commons/thumb/b/b1/Domain_name_space.svg/600px-Domain_name_space.svg.png)
 
 Users generally do not communicate directly with a DNS resolver. Instead DNS resolution takes place transparently in applications such as web browsers, e-mail clients, and other Internet applications. When an application makes a request that requires a domain name lookup, such programs send a resolution request to the DNS resolver in the local operating system, which in turn handles the communications required.
