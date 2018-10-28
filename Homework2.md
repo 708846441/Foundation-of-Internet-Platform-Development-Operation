@@ -299,9 +299,11 @@ Electrically addressed systems are expensive, but fast, whereas mechanically add
 Also, today people are tending to develope non-volatile memory systems comparable in speed and capacity to volatile RAM, such as NVRAM, which might be going to add a new layer between storage and cache memory in computer systems.
 
 ### 4.2. Virtual Memory
+At chapter 4.1., we mainly talk about different kinds of physical implementations or devices of memory. To increase the utilization of them, people designed concept of virtual memory.
 
-virtual memory is a memory management technique that provides an "idealized abstraction of the storage resources that are actually available on a given machine" which "creates the illusion to users of a very large memory."
+virtual memory is a memory management technique that provides an "idealized abstraction of the storage resources that are actually available on a given machine" which "creates the illusion to users of a very large memory." 
 
+![Virtual memory and Physical memory](https://github.com/708846441/Foundation-of-Internet-Platform-Development-Operation/blob/master/image/500px-Virtual_memory.svg.png)
 
 Virtual memory serves an integral part of a modern computer architecture; there are several main ideas in VM:
 - VA: virtual address for each process, starting and ending at the same address which forms the virtual space of the system
