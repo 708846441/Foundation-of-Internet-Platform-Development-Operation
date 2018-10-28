@@ -168,6 +168,8 @@ There are mainly two types.
 The first is volatile memory, which is computer memory that requires power to maintain the stored information. 
 
 On the contrary, Non-volatile memory is computer memory that can retain the stored information even when not powered.
+
+
 <table>
  <thead>
  <tr>
@@ -209,7 +211,6 @@ On the contrary, Non-volatile memory is computer memory that can retain the stor
  <th> EEPROM 	</th>
  <td> Non-volatile</td>
  <td> Electrically erasable programmable read only memory</td>
- </tr>
        <tr>
  <th> Flash	</th>
  <td> Non-volatile</td>
@@ -219,7 +220,7 @@ On the contrary, Non-volatile memory is computer memory that can retain the stor
  </table>
 
 ### 4.1.1.Volatile Memory
-As shown above, RAM comes into two varieties - static and dynamic.
+As shown above, RAM comes into two main varieties - static and dynamic.
 <table>
  <thead>
  <tr>
@@ -243,6 +244,7 @@ As shown above, RAM comes into two varieties - static and dynamic.
  </tbody>
  </table>
 
+
 Static means that:
 - not sensitive to disturbance. An SRAM memory cell has only two stable configurations, or states. It cannot remain balanced in metastable state, because the smallest disturbance will make it move into stable states.
 - persistent as long as power is applied. An SRAM memory cell will retain its value indefinitely as long as it is kept powered
@@ -251,9 +253,62 @@ Dynamic means that:
 - very sensitive to any disturbance; once disturbed, never recover again
 - not persistent, various sources of leakage current cause a DRAM cell to lose its charge within 10 to 100 milliseconds
 
-There are several memory modules for RAM.
+Besides, there are SDRAM ( faster at outputting contents of its supercells ), Z-RAM ( a tradename of a now-obsolete dynamic random-access memory technology that did not require a capacitor to maintain its state ) and A-RAM ( based on single-transistor capacitor-less cells ) which are both different types of DRAM.
 
 ### 4.1.2. Non-volatile Memory
+
+For historic reasons, we usually refer to non-volatile memory as read-only memorie, even though some types of ROM can be written to as well as read.
+
+Non-volatile data storage can be categorized into electrically addressed systems (read-only memory) and mechanically addressed systems (hard disks, optical disc, magnetic tape, holographic memory, and such).
+
+Below are some kinds of NVM.
+
+<table>
+ <thead>
+ <tr>
+<td></td> <th>Traits</th> <th>Application </th>
+ </tr> 
+ </thead>
+<tbody>
+      <tr>
+ <th> PROM	</th>
+ <td>programmed excatly once, by blowing fuse using a high current</td>
+ <td> electronic game machine/dictionary</td>
+ </tr>
+   <tr>
+ <th> EPROM	</th>
+ <td> cells can be cleared by ultraviolet light</td>
+ <td> high precision digital voltmeter, signal controller</td>
+ </tr>
+    <tr>
+ <th> EEPROM	</th>
+ <td> can be reprogrammed many times</td>
+ <td> used for storing boot interface, single chip microcomputer</td>
+ </tr>
+  <th> flash	</th>
+ <td> can be reprogrammed many times</td>
+ <td> SSD</td>
+ </tr>
+
+ </tbody>
+ </table>
+ 
+ Besides, there are F-RAM(ferroelectric RAM ), MRAM(magnetoresistive RAM) and so on.
+Electrically addressed systems are expensive, but fast, whereas mechanically addressed systems have a low price per bit, but are slow. 
+
+Also, today people are tending to develope non-volatile memory systems comparable in speed and capacity to volatile RAM, such as NVRAM, which might be going to add a new layer between storage and cache memory in computer systems.
+
+### 4.2. Virtual Memory
+
+virtual memory is a memory management technique that provides an "idealized abstraction of the storage resources that are actually available on a given machine" which "creates the illusion to users of a very large memory."
+
+
+Virtual memory serves an integral part of a modern computer architecture; there are several main ideas in VM:
+- VA: virtual address for each process, starting and ending at the same address which forms the virtual space of the system
+- PA: physical address, allocated by BIOS at starting-up phase of computer, corresponding to the address bus to which the processor and CPU are connected
+- Page tables: used to translate the virtual addresses seen by the application into physical addresses
+
+Virtual memory's concept can also be used in accessing IO devices, for example, disk.
 
 ## Reference
 
