@@ -3,7 +3,7 @@
 ## 1. Storage(Ceph)
 
  As is described in [1], Ceph directly addresses the issue of scalability while simultaneously achieving high performance, reliability and availability through three fundamental design features: 
- 
+
   - decoupled data and metadata
   - dynamic distributed metadata management
   - reliable autonomic distributed object storage
@@ -22,7 +22,7 @@ This allows any party to calculate (rather than look up) the name and location o
 Because ﬁle system metadata operations make up as much as half of typical ﬁle system workloads [7], effective metadata management is critical to overall system performance. Ceph utilizes a novel metadata cluster architecture based on Dynamic Subtree Partitioning [8] that adaptively and intelligently distributes responsibility for managing the ﬁle system directory hierarchy among tens or even hundreds of MDSs. 
 
 A (dynamic) hierarchical partition preserves locality in each MDS’s workload, facilitating efﬁcient updates and aggressive prefetching to improve performance for common workloads. Signiﬁcantly, the workload distribution among metadata servers is based entirely on current access patterns, allowing Ceph to effectively utilize available MDS resources underany workload and achieve near-linear scaling in the number of MDSs.
- 
+
 ### 1.3. Reliable Autonomic Distributed Object Storage
 
 Large systems composed of many thousands of devices are inherently dynamic: they are built incrementally,they grow and contract as new storage is deployed and old devices are decommissioned, device failures are frequent and expected, and large volumes of data are created, moved, and deleted. All of these factors require that the distribution of data evolve to effectively utilize available resources and maintain the desired level of data replication. 
@@ -68,7 +68,6 @@ There is another widely used protocol known as UDP, and here are the major diffe
 <td></td> <th>TCP</th> <th>UDP</th>
  </tr> 
  </thead>
-
 <tbody>
  <tr>
  <th> Connection	</th>
@@ -112,7 +111,7 @@ UDP is suitable for applications that need fast, efficient transmission, such as
 
  </tbody>
  </table>
- 
+
 ### 2.3. Domain Name System (DNS)
 
 The Domain Name System (DNS) is a hierarchical decentralized naming system for computers, services, or other resources connected to the Internet or a private network. It is used to translate human-friendly domain names into IP addresses, which are machine-friendly.
@@ -122,6 +121,41 @@ The Domain Name System (DNS) is a hierarchical decentralized naming system for c
 Users generally do not communicate directly with a DNS resolver. Instead DNS resolution takes place transparently in applications such as web browsers, e-mail clients, and other Internet applications. When an application makes a request that requires a domain name lookup, such programs send a resolution request to the DNS resolver in the local operating system, which in turn handles the communications required.
 
 The DNS resolver will almost invariably have a cache (see above) containing recent lookups. If the cache can provide the answer to the request, the resolver will return the value in the cache to the program that made the request. If the cache does not contain the answer, the resolver will send the request to one or more designated DNS servers. 
+
+## 3. xPU
+
+In computing, a processing unit is an electronic circuit which performs operations on some external data source, usually memory or some other data stream. Here are several examples of xPU.
+
+### 3.1. Intelligence Processing Unit (IPU)
+
+IPU is specifically designed for machine intelligence workloads made by Graphcore. The IPU has been optimized to work efficiently on the extremely complex high-dimensional models needed for machine intelligence workloads. Here are some features of IPU.
+
+- It supports Training and Inference at the same time.
+- It has more than 1000 truly independent processors per chip.
+- All model state remains on chip, and it has no directly-attached DRAM.
+
+- It uses Graph as the basic representation of machine intelligence. 
+- It serialises computation and communication.
+
+However, in practice, there are many differences between Training and Inference of deep learning. They acquire different computation and different accuracy. Whether IPU can solve these questions and perform well is to be discussed.
+
+There are also some factors that limit the performance of IPU, such as
+
+- rate of arithmetic
+- bandwidth or latency of data access
+- rate of address calculation
+- rate of generation of random numbers
+- power
+
+In conclusion, IPU needs large amount of power to finish its job. However, no matter what the condition is, it will be likely for IPU to finish the job in the least time. IPU is a quite efficient chip, and it may perform well in Cloud service.
+
+### 3.2. Tensor Processing Unit (TPU)
+
+A tensor processing unit (TPU) is an AI accelerator application-specific integrated circuit (ASIC) developed by Google specifically for neural network machine learning. TPU is designed for Google's TensorFlow framework, which is used for machine learning applications.
+
+The TPU is on average about 15X - 30X faster than its contemporary GPU or CPU, with TOPS/Watt about 30X - 80X higher. Moreover, using the GPU’s GDDR5 memory in the TPU would triple achieved TOPS and raise TOPS/Watt to nearly 70X the GPU and 200X the CPU.[9] TPU is unique in that it uses fewer computational bits. It only fires up the bits that you need, when you need them. This allows more operations per second, with the same amount of silicon.
+
+Google has already used TPU in AlphaGo, which beat Lee Sedol in 2016 and Ke Jie in 2017. Google has stated that they were also used in the AlphaZero system which produced Chess, Shogi and Go playing programs from the game rules alone and went on to beat the leading programs in those games. 
 
 ## Reference
 
@@ -141,3 +175,4 @@ The DNS resolver will almost invariably have a cache (see above) containing rece
 
 [8] S. A. Weil, K. T. Pollack, S. A. Brandt, and E. L. Miller. Dynamic metadata management for petabyte-scale ﬁle systems. In Proceedings of the 2004 ACM/IEEE Conference on Supercomputing (SC ’04). ACM, Nov. 2004. 
 
+[9] Jouppi N P, Young C, Patil N, et al. In-Datacenter Performance Analysis of a Tensor Processing Unit[J]. 2017:1-12.
