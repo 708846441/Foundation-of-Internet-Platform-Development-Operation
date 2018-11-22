@@ -154,3 +154,43 @@ syncLimit=2
   ![producer](../image/producer.png)
 
   ![consumer](../image/consumer.png)
+
+
+
+## 3. Quantitative analyzing
+
+#### 3.1. Producer test
+
+- We use bin/kafka-producer-perf-test.sh to test the producer.
+- First, we create two brokers and several topics with different partition number and replication number to meet our test requests.
+- We use different partition numbers, replication numbers, batch sizes and record sizes to test the producer, and the results are as follows.
+- Here are test results with different partition numbers. We can see that the larger the partition number is, the lower the throughput(records/sec) will be.
+
+![consumer](../image/producer-partition-test.jpg)
+
+- Here are test results with different replication numbers. We can see that the larger the replication number is, the lower the throughput(records/sec) will be.
+
+![consumer](../image/producer-replication-test.jpg)
+
+- Here are test results with different batch sizes. We can see that the larger the batch size is, the higher the throughput(records/sec) will be. However, we can still see that if the batch size is larger than 30000, the throughput barely increases.
+
+![consumer](../image/producer-batchsize-test.jpg)
+
+- Here are test results with different record sizes. We can see that the larger the record size is, the lower the throughput(records/sec) will be.
+
+![consumer](../image/producer-recordsize-test.jpg)
+
+#### 3.2. Consumer test
+
+- We use bin/kafka-consumer-perf-test.sh to test the consumer.
+
+- We use different partition numbers and thread numbers to test the consumer, and the results are as follows.
+
+- Here are test results with different partition numbers. We can see that the larger the partition number is, the lower the throughput(records/sec) will be.
+
+![consumer](../image/consumer-partition-test.jpg)
+
+- Here are test results with different thread numbers. We can see that the more the threads are, the higher the throughput(records/sec) will be.
+
+![consumer](../image/consumer-threads-test.jpg)
+
