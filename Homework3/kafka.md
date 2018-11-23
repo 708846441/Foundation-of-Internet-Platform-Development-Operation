@@ -301,45 +301,45 @@ if __name__ == "__main__":
 
 - Let producer run for a while, then start the consumer to fetch the requests. As below, 4 producer threads produce a total of 31 requests in such order. Then we stop the process using CTRL+Z.
 
-![](E:\课程相关文件\Grade 3-1\企业软件质量\Homework\Foundation-of-Internet-Platform-Development-Operation-master\Foundation-of-Internet-Platform-Development-Operation\image\d-producer-1.PNG)
+![](..\image\d-producer-1.PNG)
 
 - Then we start request consumer. Interestingly, **nothing happens**. The customer **didn't get anything from producer**. 
 
-  ![d-cos-1](E:\课程相关文件\Grade 3-1\企业软件质量\Homework\Foundation-of-Internet-Platform-Development-Operation-master\Foundation-of-Internet-Platform-Development-Operation\image\d-cos-1.PNG)
+  ![d-cos-1](..\image\d-cos-1.PNG)
 
 - When we resume the producer, this time consumer fetches data successfully, but only from ID 33, the old requests somehow disappear.
 
   Also, we can see that **the order of requests received by consumer is not the same as the messages print by producer**. It seems not to be streamingly processed.
 
-  ![d-producer-2](E:\课程相关文件\Grade 3-1\企业软件质量\Homework\Foundation-of-Internet-Platform-Development-Operation-master\Foundation-of-Internet-Platform-Development-Operation\image\d-producer-2.PNG)
+  ![d-producer-2](..\image\d-producer-2.PNG)
 
-  ![d-cos-2](E:\课程相关文件\Grade 3-1\企业软件质量\Homework\Foundation-of-Internet-Platform-Development-Operation-master\Foundation-of-Internet-Platform-Development-Operation\image\d-cos-2.PNG)
+  ![d-cos-2](..\image\d-cos-2.PNG)
 
 - When we stop and resume the producer, leaving customer active, customer has no action.
 
 - When we **resume the producer again, customer gets new data immediately**.
 
-  ![d-producer-3](E:\课程相关文件\Grade 3-1\企业软件质量\Homework\Foundation-of-Internet-Platform-Development-Operation-master\Foundation-of-Internet-Platform-Development-Operation\image\d-producer-3.PNG)
+  ![d-producer-3](..\image\d-producer-3.PNG)
 
-  ![d-cos-3](E:\课程相关文件\Grade 3-1\企业软件质量\Homework\Foundation-of-Internet-Platform-Development-Operation-master\Foundation-of-Internet-Platform-Development-Operation\image\d-cos-3.PNG)
+  ![d-cos-3](..\image\d-cos-3.PNG)
 
 - When we stop the customer and leave producer active, waiting for producer for seconds, then resume customer, we get new requests data soon.
 
-  ![d-producer-4](E:\课程相关文件\Grade 3-1\企业软件质量\Homework\Foundation-of-Internet-Platform-Development-Operation-master\Foundation-of-Internet-Platform-Development-Operation\image\d-producer-4.PNG)
+  ![d-producer-4](..\image\d-producer-4.PNG)
 
-  ![d-cos-4](E:\课程相关文件\Grade 3-1\企业软件质量\Homework\Foundation-of-Internet-Platform-Development-Operation-master\Foundation-of-Internet-Platform-Development-Operation\image\d-cos-4.PNG)
+  ![d-cos-4](..\image\d-cos-4.PNG)
 
 - Notice that this time we produce a 'cancel' request, so we start cancel consumer to try to get it.
 
   Again it somehow loses, we didn't get anything.
 
-  ![d-cancos-1](E:\课程相关文件\Grade 3-1\企业软件质量\Homework\Foundation-of-Internet-Platform-Development-Operation-master\Foundation-of-Internet-Platform-Development-Operation\image\d-cancos-1.PNG)
+  ![d-cancos-1](..\image\d-cancos-1.PNG)
 
 - Resume producer and wait for another cancel request. Cancel consumer gets it this time.
 
-  ![d-producer-5](E:\课程相关文件\Grade 3-1\企业软件质量\Homework\Foundation-of-Internet-Platform-Development-Operation-master\Foundation-of-Internet-Platform-Development-Operation\image\d-producer-5.PNG)
+  ![d-producer-5](..\image\d-producer-5.PNG)
 
-  ![d-cancos-2](E:\课程相关文件\Grade 3-1\企业软件质量\Homework\Foundation-of-Internet-Platform-Development-Operation-master\Foundation-of-Internet-Platform-Development-Operation\image\d-cancos-2.PNG)
+  ![d-cancos-2](..\image\d-cancos-2.PNG)
 
 ##### 4.4.2 modify producer and test again
 
@@ -362,8 +362,8 @@ else:
 
 - This time, everything goes in order.
 
-![d-producer-6](E:\课程相关文件\Grade 3-1\企业软件质量\Homework\Foundation-of-Internet-Platform-Development-Operation-master\Foundation-of-Internet-Platform-Development-Operation\image\d-producer-6.PNG)
+![d-producer-6](..\image\d-producer-6.PNG)
 
-![d-cos-5](E:\课程相关文件\Grade 3-1\企业软件质量\Homework\Foundation-of-Internet-Platform-Development-Operation-master\Foundation-of-Internet-Platform-Development-Operation\image\d-cos-5.PNG)
+![d-cos-5](..\image\d-cos-5.PNG)
 
 - So, the consumer do gets requests in the same order that the producer writes. This proves that Kafka really process in the stream.
