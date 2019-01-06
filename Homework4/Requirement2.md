@@ -82,4 +82,4 @@ $ chmod 777 ./rke
 
 - The dashboard is now running on the 30090 port (which can be configured in the .yaml file). Visit it via browser.
 
-- ![dashboard](F:\OneDrive\~2018Fall\Internet Platform Dev & Operation\Foundation-of-Internet-Platform-Development-Operation\Homework4\dashboard.png)
+- ![dashboard](./dashboard.png)
