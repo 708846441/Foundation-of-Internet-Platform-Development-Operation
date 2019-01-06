@@ -161,6 +161,7 @@ syncLimit=2
 
 
 
+
 ## 3. Quantitative analyzing
 
 #### 3.1. Producer test
@@ -367,3 +368,4 @@ else:
 ![d-cos-5](../image/d-cos-5.PNG)
 
 - So, the consumer do gets requests in the same order that the producer writes. This proves that Kafka really process in the stream.
+
