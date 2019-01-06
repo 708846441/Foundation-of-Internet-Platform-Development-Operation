@@ -154,3 +154,13 @@ syncLimit=2
   ![producer](../image/producer.png)
 
   ![consumer](../image/consumer.png)
+
+  ​
+
+  ## 3. Streaming Processing
+
+  #### 3.1 Concept
+
+  ​
+
+  ​
