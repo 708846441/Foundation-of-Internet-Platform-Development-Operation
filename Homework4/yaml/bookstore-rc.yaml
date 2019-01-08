@@ -1,0 +1,19 @@
+apiVersion: v1
+kind: ReplicationController
+metadata:
+  name: bookstore
+spec:
+  replicas: 1
+  selector:
+    app: bookstore
+  template:
+    metadata:
+      labels:
+        app: bookstore
+    spec:
+      containers:
+      - name: bookstore
+        image: bookstore
+        imagePullPolicy: Never
+        ports:
+        - containerPort: 12306

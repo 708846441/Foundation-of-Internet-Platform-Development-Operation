@@ -53,7 +53,7 @@ $ chmod 777 ./rke
   $ ./rke config --name cluster.yml 
   ```
 
-- A configuration for reference is as follows.![config](./config.png)
+- A configuration for reference is as follows.![config](./image/config.png)
 
 - Create the RKE cluster
 
@@ -82,4 +82,5 @@ $ chmod 777 ./rke
 
 - The dashboard is now running on the 30090 port (which can be configured in the .yaml file). Visit it via browser.
 
-- ![dashboard](./dashboard.png)
+- ![dashboard](./image/dashboard.png)
+
